@@ -13,10 +13,11 @@ module.exports = function (schemas, options) {
 					};
 				})();
 			}
+			
+			yield next;
 		} catch(err) {
 			err.status = 400;
 			throw err;
 		}
-		yield next;
 	};
 };

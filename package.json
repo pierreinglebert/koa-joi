@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/pierreinglebert/koa-joi/issues"
   },
-  "homepage": "https://github.com/pierreinglebert/koa-joi"
+  "homepage": "https://github.com/pierreinglebert/koa-joi",
+  "devDependencies": {
+    "eslint": "1.10.1"
+  }
 }

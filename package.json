@@ -4,7 +4,8 @@
   "description": "Joi validation middleware",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "istanbul cover --root . node_modules/mocha/bin/_mocha --",
+    "posttest": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,13 @@
   },
   "homepage": "https://github.com/pierreinglebert/koa-joi",
   "devDependencies": {
-    "eslint": "1.10.1"
+    "eslint": "1.10.1",
+    "istanbul": "~0.4.2",
+    "joi": "7.2.0",
+    "koa": "1.1.2",
+    "koa-bodyparser": "~2.0.1",
+    "mocha": "*",
+    "should": "*",
+    "supertest": "~1.1.0"
   }
 }

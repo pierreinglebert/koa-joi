@@ -7,7 +7,7 @@ module.exports = function(schemas, options) {
   return function*(next) {
     try {
       for (let key in schemas) {
-        yield (function() {
+        this.request[key] = yield (function() {
           return function(cb) {
             joi.validate(this.request[key], schemas[key], options, cb);
           };

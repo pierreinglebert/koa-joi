@@ -38,4 +38,21 @@ describe('koa-joi', function() {
       .end(done);
   });
 
+  it('should parse a valid request', function(done) {
+    app.use(function* () {
+      try {
+        this.request.body.test.should.be.type('number');
+        done();
+      } catch (e) {
+        done(e);
+      }
+    });
+
+    request(app.listen())
+      .post('/')
+      .send({ test: '1' })
+      .expect(404)
+      .end(Function.prototype);
+  });
+
 });

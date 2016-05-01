@@ -17,6 +17,9 @@ describe('koa-joi', function() {
     app.use(validate({
       body: {
         test: joi.number().required()
+      },
+      query: {
+        test2: joi.number()
       }
     }));
 
@@ -42,6 +45,7 @@ describe('koa-joi', function() {
     app.use(function* () {
       try {
         this.request.body.test.should.be.type('number');
+        this.request.query.test2.should.be.type('number');
         done();
       } catch (e) {
         done(e);
@@ -50,6 +54,7 @@ describe('koa-joi', function() {
 
     request(app.listen())
       .post('/')
+      .query({ test2: '2' })
       .send({ test: '1' })
       .expect(404)
       .end(Function.prototype);

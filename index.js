@@ -20,7 +20,10 @@ module.exports = function(schemas, options) {
       }
       yield next;
     } catch (err) {
-      err.status = 400;
+      /* istanbul ignore else */
+      if (err.name === 'ValidationError') {
+        err.status = 400;
+      }
       throw err;
     }
   };
